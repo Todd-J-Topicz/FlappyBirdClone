@@ -15,7 +15,7 @@ function init() {
   createjs.Ticker.addEventListener("tick", stage);
 
   let background = new createjs.Shape();
-  background.graphics.beginLinearGradientFill(["#2573BB", "#6CB8DA", "#567A39"], [0, 0.85, 1], 0, 0, 0, 480)
+  background.graphics.beginLinearGradientFill(["#0000FF", "#CC5500", "#FF0000"], [0, 0.85, 1], 0, 0, 0, 480)
   .drawRect(0, 0, 320, 480);
   background.x = 0;
   background.y = 0;
@@ -62,7 +62,7 @@ function createClouds() {
       let originalX = clouds[i].x;
       createjs.Tween.get(clouds[i], {loop: true})
         .to({x: clouds[i].x - (200 * directionMultiplier)}, 4000, createjs.Ease.getPowInOut(2))
-        .to({x: originalX}, 3000, createjs.Ease.getPowInOut(2))
+        .to({x: originalX}, 4000, createjs.Ease.getPowInOut(2))
       stage.addChild(clouds[i]);
     }
   }
@@ -81,8 +81,8 @@ function jumpFlappy(){
         startGame();
     }
     createjs.Tween.get(flappy, {override: true})
-        .to({y : flappy.y - 60, rotation: -10}, 500, createjs.Ease.getPowOut(2))
-        .to({y : stage.canvas.height + (flappy.image.width /2), rotation: 30}, 1500, createjs.Ease.getPowIn(2))
+        .to({y : flappy.y - 60, rotation: -30}, 500, createjs.Ease.getPowOut(2))
+        .to({y : stage.canvas.height + (flappy.image.width / 2), rotation: 60}, 1500, createjs.Ease.getPowIn(2))
         .call(gameOver);
 }
 

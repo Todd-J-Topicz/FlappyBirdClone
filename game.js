@@ -61,8 +61,8 @@ function createClouds() {
       let directionMultiplier = i % 2 == 0 ? -1 : 1;
       let originalX = clouds[i].x;
       createjs.Tween.get(clouds[i], {loop: true})
-        .to({x: clouds[i].x - (200 * directionMultiplier)}, 4000, createjs.Ease.getPowInOut(2))
-        .to({x: originalX}, 4000, createjs.Ease.getPowInOut(2))
+        .to({x: clouds[i].x - (200 * directionMultiplier)}, 3000, createjs.Ease.getPowInOut(2))
+        .to({x: originalX}, 3000, createjs.Ease.getPowInOut(2))
       stage.addChild(clouds[i]);
     }
   }
@@ -104,9 +104,9 @@ function createPipes() {
    
     topPipe.regX = bottomPipe.regX = topPipe.image.width / 2;
    
-    createjs.Tween.get(topPipe).to({ x: 0 - topPipe.image.width }, 10000).call(function() { removePipe(topPipe); })
+    createjs.Tween.get(topPipe).to({ x: 0 - topPipe.image.width }, 4000).call(function() { removePipe(topPipe); })
     .addEventListener("change", updatePipe);
-    createjs.Tween.get(bottomPipe).to( { x: 0 - bottomPipe.image.width }, 10000).call(function() { removePipe(bottomPipe); });
+    createjs.Tween.get(bottomPipe).to( { x: 0 - bottomPipe.image.width }, 4000).call(function() { removePipe(bottomPipe); });
    
     let scoreIndex = stage.getChildIndex(scoreText);
 
@@ -155,7 +155,7 @@ function incrementScore(){
 function startGame(){
     started = true;
     createPipes();
-    pipeCreator = setInterval(createPipes, 6000);
+    pipeCreator = setInterval(createPipes, 3100);
 }
 
 function checkCollision(){
